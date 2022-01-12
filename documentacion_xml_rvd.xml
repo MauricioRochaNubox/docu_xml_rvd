@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ConsumoFolios xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte ConsumoFolio_v10.xsd" version="1.0">
+  <DocumentoConsumoFolios ID="SetDoc">
+    <Caratula version="1.0">
+      <!--
+        RUT Contribuyente, largo 10, alfanumerico
+        Corresponde al Rut del contribuyente emisor con guion y dígito verificador
+      -->
+      <RutEmisor>77410231-0</RutEmisor>
+
+      <!-- RUT Envía, largo 10, alfanumerico 
+      Corresponde al Rut del usuario autorizado por el contribuyente que hace el envío al SII
+      -->
+      <RutEnvia>17108936-0</RutEnvia>
+
+      <!-- Fecha Resolución, largo 10, alfanumerico
+      AAAA-MM-DD, Fecha de Resolución que autoriza al contribuyente a emitir DTE.  -->
+      <FchResol>2014-08-22</FchResol>
+      
+      <!-- Número Resolución, largo 6, numerico.
+      Número de Resolución que autoriza al contribuyente como emisor de DTE. -->
+      <NroResol>80</NroResol>
+      
+
+      <!-- Fecha de Inicio del Resumen, largo 10, alfanumerico
+
+      ** En caso de servicios periódicos, considerar la fecha de vencimiento de los documentos
+
+      Fecha del primer día a que corresponde el Resumen, en formato AAAA-MM-DD (Año (4), Mes (2), Día (2)). -->
+      <FchInicio>2022-01-09</FchInicio>
+      
+      <!-- Fecha Final del Resumen, largo 10, alfanumerico.
+
+      ** En caso de servicios periódicos, considerar la fecha de vencimiento de los documentos
+
+      Fecha del último día a que corresponde el Resumen, en formato AAAA-MM-DD (Año (4), Mes (2), Día (2)). -->
+      <FchFinal>2022-01-09</FchFinal>
+      
+
+      <!-- Secuencia de Envío, largo 3, numerico.
+
+      Secuencia de Envío. La primera vez que se envía debe traer el número 1.
+      Si se desea corregir información se debe enviar el archivo completo, pero "SecEnvio", debe aumentar en
+      1, es decir la segunda vez debe traer el valor 2, la tercera vez debe traer el valor 3, etc. -->
+      <SecEnvio>1</SecEnvio>
+      
+      <!-- Fecha y hora de la firma digital del envío, largo 19, alfanumerico.
+      
+      Validaciones:
+        1.- validación de formato AAAA-MM-DDTHH:MI:SS Fecha-Hora de Firma  -->
+      <TmstFirmaEnv>2022-01-10T01:35:07</TmstFirmaEnv>
+    </Caratula>
+    <Resumen>
+
+      <!-- Tipo de Documento, largo 2, numerico, obligatorio.
+        Indica que el documento informado es:
+            39: Boleta Electrónica.
+            41: Boleta No Afecta Exenta Electrónica.  -->
+      <TipoDocumento>39</TipoDocumento>
+
+
+      <!-- total monto neto, largo 18, numerico, condicional.
+
+      Total Monto Neto (Afecto) de documentos emitidos informados.
+      En caso de Boletas Electrónicas en que la cantidad de documentos emitidos sea mayor que 0, debe contener valor
+      mayor o igual a 0. En el caso de Boletas No Afectas o Exentas electrónicas debe ser cero. -->
+      <MntNeto>99824</MntNeto>
+
+
+      <!-- total monto iva, largo 18, numerico, condicional
+      Total IVA de documentos emitidos informados. En caso de boletas Electrónicas en que la cantidad de documentos emitidos
+      sea mayor que 0, debe contener valor mayor o igual a 0 e igual a monto Neto * Tasa IVA. En el caso de Boletas No Afectas o
+      Exentas Electrónicas debería ser cero. -->
+      <MntIva>18966</MntIva>
+
+      <!-- tasa iva, largo 5, numerico, opcional
+      3 enteros, 2 decimales En Porcentaje (Ej: 19,50) -->
+      <TasaIVA>19</TasaIVA>
+
+      <!-- Total monto exento, largo 18, numerico, condicional
+      Total Monto No Afecto o Exento de documentos emitidos informados. En el caso de Boletas No Afectas Exentas
+      Electrónicas en que la cantidad de documentos emitidos en el día sea mayor que 0, debe contener valor mayor o igual a 0. -->
+      <MntExento>0</MntExento>
+
+
+      <!-- Total monto total, largo 18, numerico, obligatorio
+      Suma de totales (neto, IVA y exento) para cada tipo de documento. -->
+      <MntTotal>118790</MntTotal>
+
+      <!-- Cantidad de documentos emitidos en el periodo, largo 10, numerico, obligatorio.
+      
+      Cantidad de Documentos del tipo correspondiente a emitidos. Se debe indicar la cantidad total de documentos emitidos en el
+      período. Si no hay documentos emitidos del tipo especificado, en el período indicado en la carátula, se debe registrar 0. -->
+      <FoliosEmitidos>2</FoliosEmitidos>
+
+      <!-- Cantidad de folios anulados en el periodo, largo 10, numerico, obligatorio.
+      
+      En este campo indicar Cantidad de Folios de documentos del tipo correspondiente anulados. se refiere a los folios
+      anulados en el sistema que no corresponden a documentos enviados al SII (Opción anulación de folios) y no a Documentos anulados
+      mediante Notas de Crédito Electrónicas. -->
+      <FoliosAnulados>0</FoliosAnulados>
+
+      <!-- Cantidad de documentos utilizados en el periodo, largo 10, numerico, condicional
+
+      Cantidad de Documentos del tipo correspondiente a emitidos y anulados. Si no informa folios anulados, se repite cantidad de
+      documentos emitidos. -->
+      <FoliosUtilizados>2</FoliosUtilizados>
+
+      <!-- Tabla de rangos utilizados (emitidos y anulados), es condicional.
+      Tabla que contiene un rango de folios CONSECUTIVOS utilizados
+      (Hasta 5.000 posibles repeticiones). La suma total de los folios
+      utilizados debe ser igual a “Cantidad de documentos utilizados en
+      el periodo”. -->
+      <RangoUtilizados>
+      
+        <!-- Folio Utilizado Inicial (Desde), largo 10, numerico, obligatorio.
+        Número de folio inicial del rango de folios utilizados en el período.
+        Debe ser mayor que el “folio utilizado final” del rango precedente. -->
+        <Inicial>7035</Inicial>
+        
+        <!-- Folio Utilizado Final (Hasta) largo 10, numerico, obligatorio.
+        Número de folio final del rango de folios utilizados en el período.
+        Debe ser mayor que “Folio Utilizado Inicial” -->
+        <Final>7036</Final>
+
+      </RangoUtilizados>
+
+      <!-- Tabla de folios anulados, condicional.
+      Tabla que contiene los folios CONSECUTIVOS anulados (Hasta 5.000 posibles repeticiones).
+      La suma total de los folios anulados debe ser igual a la “Cantidad de Folios anulados en el período”. -->
+      <RangoAnulados>
+
+        <!-- Folio Anulado (O folio anulado Inicial) largo 10, numerico, obligatorio.
+        Número de folio inicial de rango de folios anulados.
+        O folio individual anulado si no se trata de un rango (Inicial – Final). -->
+        <Inicial>7035</Inicial>
+
+        <!-- Folio Anulado Final, largo 10, numerico, obligatorio.
+        Número de folio final de rango de folios anulados.(puede omitirse cuando se reporta folio individual. -->
+        <Final>7036</Final>
+      </RangoAnulados>
+    </Resumen>
+  </DocumentoConsumoFolios>
+
+  <!-- Firma electronica -->
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="#SetDoc">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>xKvWVL53vPkFLexWX6UQxXAHtLc=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>FMgKsP/awHXpw17teGywmIdED0WmRknJzdsSlfy6dL1eVrIidmdI7GSr7HpuNPmjmlPXQZps/eQ3gXMgDDqbNFWdlyX5iC+ne8ht9OqAbFWFqICLsytIfOGuEi8IhkwWwF9edM5caJjIQR6bZprzOCHQrY/+0rLB3fLc+VpxlF8=</SignatureValue>
+    <KeyInfo>
+      <KeyValue>
+        <RSAKeyValue>
+          <Modulus>oD1C4u0E2AJWTBy9IfMnfrMg/3p85NLXN2lHO8/vm40VFqHNwbLKgaAHutYbWlMe  uZDXhxr0LghRr5RcsrjNoSVjI/o4K1RHIrCMyYUcU35a7uhzmPYEcyDxNiqvy/Ad  6tLDGDwFYOA+tZZv2ktdH9TLJbfn59Che/6qBZb+gNM=  </Modulus>
+          <Exponent>AQAB</Exponent>
+        </RSAKeyValue>
+      </KeyValue>
+      <X509Data>
+        <X509Certificate>MIIGTzCCBTegAwIBAgIKWBtRAwAAABZN+TANBgkqhkiG9w0BAQUFADCB0jELMAkG  A1UEBhMCQ0wxHTAbBgNVBAgTFFJlZ2lvbiBNZXRyb3BvbGl0YW5hMREwDwYDVQQH  EwhTYW50aWFnbzEUMBIGA1UEChMLRS1DRVJUQ0hJTEUxIDAeBgNVBAsTF0F1dG9y  aWRhZCBDZXJ0aWZpY2Fkb3JhMTAwLgYDVQQDEydFLUNFUlRDSElMRSBDQSBGSVJN  QSBFTEVDVFJPTklDQSBTSU1QTEUxJzAlBgkqhkiG9w0BCQEWGHNjbGllbnRlc0Bl  LWNlcnRjaGlsZS5jbDAeFw0yMTA5MDExNDQ0NDBaFw0yNDA4MzExNDQ0NDBaMIHQ  MQswCQYDVQQGEwJDTDEiMCAGA1UECBMZTUVUUk9QT0xJVEFOQSBERSBTQU5USUFH  TzERMA8GA1UEBxMIU0FOVElBR08xLDAqBgNVBAoTI0NPTUVSQ0lBTCBBUkFVQ0FO  SUEgQU5ESU5BIExJTUlUQURBMQowCAYDVQQLDAEqMSYwJAYDVQQDEx1GUkFOQ0lT  Q08gSkFWSUVSIEdBUlJJRE8gVkVSQTEoMCYGCSqGSIb3DQEJARYZTE9QRVouR0lV  U0VQUEVNQEdNQUlMLkNPTTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAoD1C  4u0E2AJWTBy9IfMnfrMg/3p85NLXN2lHO8/vm40VFqHNwbLKgaAHutYbWlMeuZDX  hxr0LghRr5RcsrjNoSVjI/o4K1RHIrCMyYUcU35a7uhzmPYEcyDxNiqvy/Ad6tLD  GDwFYOA+tZZv2ktdH9TLJbfn59Che/6qBZb+gNMCAwEAAaOCAqkwggKlMIIBTwYD  VR0gBIIBRjCCAUIwggE+BggrBgEEAcNSBTCCATAwLQYIKwYBBQUHAgEWIWh0dHA6  Ly93d3cuZS1jZXJ0Y2hpbGUuY2wvQ1BTLmh0bTCB/gYIKwYBBQUHAgIwgfEege4A  RQBsACAAcgBlAHMAcABvAG4AZABlAHIAIABlAHMAdABlACAAZgBvAHIAbQB1AGwA  YQByAGkAbwAgAGUAcwAgAHUAbgAgAHIAZQBxAHUAaQBzAGkAdABvACAAaQBuAGQA  aQBzAHAAZQBuAHMAYQBiAGwAZQAgAHAAYQByAGEAIABkAGEAcgAgAGkAbgBpAGMA  aQBvACAAYQBsACAAcAByAG8AYwBlAHMAbwAgAGQAZQAgAGMAZQByAHQAaQBmAGkA  YwBhAGMAaQDzAG4ALgAgAFAAbwBzAHQAZQByAGkAbwByAG0AZQBuAHQAZQAsMB0G  A1UdDgQWBBTnYQNGZCAWCbFcHL2qLNow2VsGEDALBgNVHQ8EBAMCBPAwIwYDVR0R  BBwwGqAYBggrBgEEAcEBAaAMFgoxNzEwODkzNi0wMB8GA1UdIwQYMBaAFHjhPp/S  ErN6PI3NMA5Ts0MpB7NVMD4GA1UdHwQ3MDUwM6AxoC+GLWh0dHA6Ly9jcmwuZS1j  ZXJ0Y2hpbGUuY2wvZWNlcnRjaGlsZWNhRkVTLmNybDA6BggrBgEFBQcBAQQuMCww  KgYIKwYBBQUHMAGGHmh0dHA6Ly9vY3NwLmVjZXJ0Y2hpbGUuY2wvb2NzcDA9Bgkr  BgEEAYI3FQcEMDAuBiYrBgEEAYI3FQiC3IMvhZOMZoXVnReC4twnge/sPGGBy54U  hqiCWAIBZAIBBDAjBgNVHRIEHDAaoBgGCCsGAQQBwQECoAwWCjk2OTI4MTgwLTUw  DQYJKoZIhvcNAQEFBQADggEBAHjtZUUZ4BsDVXxwpcZ4Fyiu5Hp1quwJb9f594zO  4938g5u+X8wJsVo+rFYwLxWlWbbzRHmuqxyDV8LVU9LAYaC0zBxno1G1/2DN/c59  f02va8llt576t9r0dNKRL/Ili87zFYSR0PwWvuJ5BfaVnP8M1s6naIEY8gI1DL3G  DUK/WCFDJbeBlGFGKArItI3/yN8QoX8dH6fMUZI/dURbx43DL1hCqx2nlqUVy9il  wTZkxsozuDpGNtVJfFu6F04Tzi2FVGxnepi30jlf1uR19VTZdjPOB0WWwzbVKj84  SlNTP8tqfagZlMsF/SSgvWhQRMqcLlRvCBHGzWJ3Sv//zz4=  </X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+</ConsumoFolios>
