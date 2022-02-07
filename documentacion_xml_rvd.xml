@@ -104,7 +104,7 @@
 
       Cantidad de Documentos del tipo correspondiente a emitidos y anulados. Si no informa folios anulados, se repite cantidad de
       documentos emitidos. -->
-      <FoliosUtilizados>2</FoliosUtilizados>
+      <FoliosUtilizados>5</FoliosUtilizados>
 
       <!-- Tabla de rangos utilizados (emitidos y anulados), es condicional.
       Tabla que contiene un rango de folios CONSECUTIVOS utilizados
@@ -123,6 +123,12 @@
         Debe ser mayor que “Folio Utilizado Inicial” -->
         <Final>7036</Final>
 
+      </RangoUtilizados>
+      
+      <!-- ejemplo de salto de folios -->
+      <RangoUtilizados>
+        <Inicial>7040</Inicial>
+        <Final>7043</Final>
       </RangoUtilizados>
 
       <!-- Tabla de folios anulados, condicional.
