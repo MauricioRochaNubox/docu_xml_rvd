@@ -91,7 +91,7 @@
       
       Cantidad de Documentos del tipo correspondiente a emitidos. Se debe indicar la cantidad total de documentos emitidos en el
       período. Si no hay documentos emitidos del tipo especificado, en el período indicado en la carátula, se debe registrar 0. -->
-      <FoliosEmitidos>2</FoliosEmitidos>
+      <FoliosEmitidos>5</FoliosEmitidos>
 
       <!-- Cantidad de folios anulados en el periodo, largo 10, numerico, obligatorio.
       
